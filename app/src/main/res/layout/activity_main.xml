@@ -2,6 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -439,7 +440,7 @@
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/activity_main_lastUpdate_death_confirm_textview"
+                        android:id="@+id/activity_main_time_lastUpdate_death_confirm_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -450,7 +451,7 @@
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/activity_main_lastUpdate_configured_new_textview"
+                        android:id="@+id/activity_main_date_lastUpdate_configured_new_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
