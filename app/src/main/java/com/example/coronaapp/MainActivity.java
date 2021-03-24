@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //setting up titile from thetext
         getSupportActionBar().setTitle("Covid-19 Tracker (India)");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Init();
         fetchData();
@@ -77,24 +79,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//
-//        lin_state_data.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "State data", Toast.LENGTH_SHORT).show();
-//                //startActivity(new Intent(MainActivity.this, StateWiseDataActivity.class));
-//            }
-//        });
-//
-//        lin_world_data.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "World data", Toast.LENGTH_SHORT).show();
-//                //Intent intent = new Intent(MainActivity.this, WorldDataActivity.class);
-//                //startActivity(intent);
-//                //startActivity(new Intent(MainActivity.this, WorldDataActivity.class));
-//            }
-//        });
+
+        lin_state_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Toast.makeText(MainActivity.this, "State data", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, StateWiseDataActivity.class));
+            }
+        });
+
+        lin_world_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "World data", Toast.LENGTH_SHORT).show();
+                //Intent intent = new Intent(MainActivity.this, WorldDataActivity.class);
+                //startActivity(intent);
+                startActivity(new Intent(MainActivity.this, WorldDataActivity.class));
+            }
+        });
 
     }
 
@@ -249,9 +251,11 @@ public class MainActivity extends AppCompatActivity {
 
         pieChart = findViewById(R.id.activity_main_piechart);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-        //lin_state_data = findViewById(R.id.activity_main_statewise_configured_title_textview);
-        //lin_world_data = findViewById(R.id.activity_mainworld_lastUpdate_configured_title_textview);
+        lin_state_data = findViewById(R.id.state_data);
+        lin_world_data = findViewById(R.id.world_data);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -291,7 +295,12 @@ public class MainActivity extends AppCompatActivity {
                 doubleBackToExitPressedOnce = false;
             }
         }, 2000);
-    }
+
+
+
+
+        }
+
 
 
 
