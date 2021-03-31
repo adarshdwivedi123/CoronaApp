@@ -47,14 +47,16 @@ public class MainActivity extends AppCompatActivity {
     private PieChart pieChart;
 
     private LinearLayout lin_state_data, lin_world_data;
-    //private LinearLayout lin_state_data, lin_world_data;
+
 
     private String str_confirmed, str_confirmed_new, str_active, str_active_new, str_recovered, str_recovered_new,
             str_death, str_death_new, str_tests, str_tests_new, str_last_update_time;
-    private int int_active_new;
+    private int int_active_new=0;
+
     private ProgressDialog progressDialog;
     private boolean doubleBackToExitPressedOnce = false;
     private Toast backPressToast;
+    //private MainActivity activity=new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Covid-19 Tracker (India)");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Init();
         fetchData();
 
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                // Toast.makeText(MainActivity.this, "State data", Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(MainActivity.this, StateWiseDataActivity.class));
             }
         });
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchData() {
-        ShowDialog();
+        ShowDialog(this);
         // here we intialzing and creating the request Queue
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         String apiUrl="https://api.covid19india.org/data.json";
@@ -173,14 +175,11 @@ public class MainActivity extends AppCompatActivity {
 
                         }
 
-
                     },1000);
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
 
             }
 
@@ -195,19 +194,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void ShowDialog() {
+    public void ShowDialog(Context context) {
 
         //setting up progress dialog
-        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog = new ProgressDialog(context);
         progressDialog.show();
         progressDialog.setContentView(R.layout.project_dialog);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
     }
 
-    public void DismissDialog() {
+
+
+    public void DismissDialog()
+    {
         progressDialog.dismiss();
     }
+
 
     public String FormatDate(String date, int testCase) {
         Date mDate = null;
@@ -248,7 +251,6 @@ public class MainActivity extends AppCompatActivity {
         tv_tests_new = findViewById(R.id.activity_main_confirm_sample_new_textview);
         tv_date = findViewById(R.id.activity_main_date_lastUpdate_configured_new_textview);
         tv_time = findViewById(R.id.activity_main_time_lastUpdate_death_confirm_textview);
-
         pieChart = findViewById(R.id.activity_main_piechart);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         lin_state_data = findViewById(R.id.state_data);
@@ -296,12 +298,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-
-
-
         }
-
-
-
 
 }
