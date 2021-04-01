@@ -45,15 +45,12 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private PieChart pieChart;
-
+    private ProgressDialog progressDialog;
     private LinearLayout lin_state_data, lin_world_data;
-
-
     private String str_confirmed, str_confirmed_new, str_active, str_active_new, str_recovered, str_recovered_new,
             str_death, str_death_new, str_tests, str_tests_new, str_last_update_time;
     private int int_active_new=0;
-
-    private ProgressDialog progressDialog;
+    //private ProgressDialog progressDialog;
     private boolean doubleBackToExitPressedOnce = false;
     private Toast backPressToast;
     //private MainActivity activity=new MainActivity();

@@ -61,7 +61,7 @@ public class WorldDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(WorldDataActivity.this, "Country wise data", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(WorldDataActivity.this, WorldDataActivity.class));
+                startActivity(new Intent(WorldDataActivity.this, CountryWiseDataActivity.class));
             }
         });
     }
