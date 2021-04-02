@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Developed by Shubham Raj"
+            android:text="Developed by Adarsh Dwivedi"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>
