@@ -272,7 +272,8 @@ public class MainActivity extends AppCompatActivity {
         //return super.onOptionsItemSelected(item);
             if(item.getItemId() ==R.id.menu_about)
             {
-                Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,AboutActivity.class));
             }
             return super.onOptionsItemSelected(item);
     }
